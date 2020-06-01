@@ -1,10 +1,9 @@
 #!/bin/sh -l
-CLIENT_ID_SECRET=$CLIENT_ID
-PICKER_SECRET=$PICKER 
-echo "Hello" CLIENT_ID_SECRET
-echo "You" PICKER_SECRET
 
-JSON_STRING='{"google": {"client_id":"$CLIENT_ID_SECRET","picker":"$PICKER_SECRET","fonts":"$PICKER_SECRET"}}'
+JSON_STRING=$( jq -n \
+                  --arg client_id "$CLIENT_ID" \
+                  --arg picker "$PICKER" \
+                  '{"google": {{client_id: $client_id, picker: $picker, fonts: $picker}}' )
 
 echo $JSON_STRING
 
