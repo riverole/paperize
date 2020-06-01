@@ -1,10 +1,8 @@
 #!/bin/sh -l
 
-JSON_STRING=$( jq -n \
-                  --arg client_id "$CLIENT_ID" \
-                  --arg picker "$PICKER" \
-                  '{"google": {{client_id: $client_id, picker: $picker, fonts: $picker}}' )
+JSON_FMT='{"google": {client_id: %s, picker: %s, fonts: %s}}\n'
+printf "$JSON_FMT" "$CLIENT_ID" "$PICKER" "$PICKER"
 
-echo $JSON_STRING
+echo $JSON_FMT
 
-echo $JSON_STRING > .api_keys.dev.json
+echo $JSON_FMT > .api_keys.dev.json
