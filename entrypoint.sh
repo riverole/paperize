@@ -1,8 +1,8 @@
 #!/bin/sh -l
 
 JSON_FMT='{"google": {client_id: %s, picker: %s, fonts: %s}}\n'
-printf "$JSON_FMT" "$CLIENT_ID" "$PICKER" "$PICKER"
+JSON_API_KEYS=printf "$JSON_FMT" "$CLIENT_ID" "$PICKER" "$PICKER"
 
-echo $JSON_FMT
+echo $JSON_API_KEYS
 
-echo $JSON_FMT > .api_keys.dev.json
+echo $JSON_API_KEYS > .api_keys.dev.json
