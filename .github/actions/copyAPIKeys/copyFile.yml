@@ -1,0 +1,6 @@
+# copyFile.yml
+name: 'Copy API keys'
+description: 'Copies API keys for tests'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
